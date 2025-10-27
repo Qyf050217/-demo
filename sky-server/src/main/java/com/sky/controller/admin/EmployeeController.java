@@ -25,7 +25,7 @@ import java.util.Map;
  */
 @RestController
 @RequestMapping("/admin/employee")
-@Slf4j
+@Slf4j // 快速打印日志
 @Api(tags = "员工相关接口")
 public class EmployeeController {
 
@@ -101,5 +101,14 @@ public class EmployeeController {
         log.info("员工分页查询，参数为：{}", DTO);
         PageResult pageResult = employeeService.pageQuery(DTO);
         return Result.success(pageResult);
+    }
+
+
+    @PostMapping("/status/{status}")
+    @ApiOperation("员工状态禁用/启用")
+    public Result startOrStop(@PathVariable Integer status, Long id) {
+        // log.info("员工状态禁用/启用：{}", status);
+        // employeeService.startOrStop(status, id);
+        return Result.success();
     }
 }
