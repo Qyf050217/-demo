@@ -32,7 +32,6 @@ public class EmployeeServiceImpl implements EmployeeService {
 
     /**
      * 员工登录
-     *
      * @param employeeLoginDTO
      * @return
      */
@@ -132,6 +131,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         employeeMapper.update(employee);
     }
 
+    /**
+     * 根据 id 查询
+     * @param id
+     * @return
+     */
     public Employee getById(Long id) {
         Employee res =  employeeMapper.getById(id);
         res.setPassword("***");
